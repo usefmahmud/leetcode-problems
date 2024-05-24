@@ -14,14 +14,11 @@ public:
         if(!head) return head;
         ListNode* ptr = head;
         
-        while(ptr->next){
+        while(ptr){
             while(ptr->next && ptr->val == ptr->next->val){
                 ptr->next = ptr->next->next;
             }
-            if(ptr->next && ptr->val != ptr->next->val){
-                ptr = ptr->next;
-            }
-            
+            ptr = ptr->next;
         }
 
         return head;
