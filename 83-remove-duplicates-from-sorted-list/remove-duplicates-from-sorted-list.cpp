@@ -11,7 +11,6 @@
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-        ListNode* curr = head;
         ListNode* ptr = head;
         
         while(ptr != nullptr && ptr->next != nullptr){
