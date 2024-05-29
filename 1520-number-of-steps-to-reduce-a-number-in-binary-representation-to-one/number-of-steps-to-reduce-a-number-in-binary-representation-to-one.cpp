@@ -11,7 +11,7 @@ public:
             }
         }
         if(foundZero != -1){
-            s[foundZero] = 'l';
+            s[foundZero] = '1';
             for(int i=foundZero+1; i<s.length(); i++){
                 s[i] = '0';
             }
