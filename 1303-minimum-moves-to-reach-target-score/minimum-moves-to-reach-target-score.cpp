@@ -2,11 +2,6 @@ class Solution {
 public:
     int minMoves(int target, int maxDoubles) {
         int r=0;
-        if(target == 1){
-            return 0;
-        }else if(maxDoubles == 0){
-            return --target;
-        }
         while(target > 1){
             if(target % 2 == 0 && target != 2){
                 if(maxDoubles){
@@ -19,6 +14,10 @@ public:
                 --target;
             }
             ++r;
+            if(target > 1 && maxDoubles == 0){
+                r += --target;
+                break;
+            }
         }
         return r;
     }
