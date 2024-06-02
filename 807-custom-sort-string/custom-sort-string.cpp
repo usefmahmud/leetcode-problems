@@ -6,12 +6,13 @@ public:
             for(int i=0; i<l; i++){
                 if(s[i] == c){
                     r += c;
-                    s.erase(s.begin()+i);
-                    --i;
+                    s[i] = '*'; 
                 }
             }
         }
-        r += s;
+        for(auto& x: s){
+            if(x != '*') r+= x;
+        }
         return r;
     }
 };
