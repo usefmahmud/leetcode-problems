@@ -4,9 +4,10 @@ public:
         int i=0, j=0;
         while(i < s.length() && j < t.length()){
             if(s[i] == t[j]){
-                j++;
+                i++, j++;
+            }else{
+                i++;
             }
-            i++;
         }
 
         return t.length() - j;
