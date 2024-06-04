@@ -1,18 +1,21 @@
 class Solution {
 public:
     int longestPalindrome(string s) {
-        unordered_map<char, int> m;
-        for(auto& c: s) ++m[c];
+        int freq1[26]={0};
+        int freq2[26]={0};
+        for(auto& c: s){
+            if(c >= 'a') ++freq1[c-'a'];
+            else ++freq2[c-'A'];
+        }
         int odd = 0, r = 0;
-        for(auto& x: m){
-            if(x.second % 2 == 0){
-                r += x.second;
-            }else{
-                r += x.second-1;
-                odd += 1;
-            }
+        for(int i=0; i<26; i++){
+            r += freq1[i]-(freq1[i]%2);
+            if(freq1[i]%2) odd=1;
+            
+            r += freq2[i]-(freq2[i]%2);
+            if(freq2[i]%2) odd=1;
         }
         
-        return r + (odd?1:0);
+        return r + odd;
     }
 };
