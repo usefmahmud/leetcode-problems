@@ -1,11 +1,15 @@
 class Solution {
 public:
     bool judgeSquareSum(int c) {
-        for(int a = 0; a <= sqrt(c); a++){
-            double b = sqrt(c - pow(a,2));
-            cout<<b<<endl;
-            if(b == (int)b){
+        long long i = 0, j = sqrt(c);
+        while(i <= j){
+            long long sum = i*i + j*j;
+            if(sum == c){
                 return true;
+            }else if(sum < c){
+                i++;
+            }else{
+                j--;
             }
         }
 
