@@ -5,10 +5,8 @@ public:
         for(int i = 1; i <= num/2; i++){
             if(!(num%i)){
                 r += i;
-                r += num/i;
             }
         }
-
-        return (r-num+1)/2 == num;
+        return r == num;
     }
 };
