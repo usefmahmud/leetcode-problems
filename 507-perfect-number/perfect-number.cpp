@@ -1,12 +1,14 @@
 class Solution {
 public:
     bool checkPerfectNumber(int num) {
-        vector<int> r;
+        int r = 0;
         for(int i = 1; i <= num/2; i++){
             if(!(num%i)){
-                r.push_back(i);
+                r += i;
+                r += num/i;
             }
         }
-        return accumulate(r.begin(), r.end(), 0) == num;
+
+        return (r-num+1)/2 == num;
     }
 };
