@@ -9,12 +9,11 @@ public:
     }
     int minimizedMaximum(int n, vector<int>& q) {
         sort(q.begin(), q.end());
-        int res = q.back();
+        int res = 0;
         int l = 1, r = q.back(), m;
         while(l <= r){
             m = (l + r) / 2;
-            int x = helper(q, n, m);
-            if(x == 1){
+            if(helper(q, n, m)){
                 res = m;
                 r = m - 1;
             }else{
