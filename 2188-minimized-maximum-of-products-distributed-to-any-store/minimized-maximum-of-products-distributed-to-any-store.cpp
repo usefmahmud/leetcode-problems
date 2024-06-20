@@ -11,9 +11,8 @@ public:
         return 1;
     }
     int minimizedMaximum(int n, vector<int>& q) {
-        sort(q.begin(), q.end());
         int res = 0;
-        int l = 1, r = q.back(), m;
+        int l = 1, r = *max_element(q.begin(), q.end()), m;
         while(l <= r){
             m = (l + r) / 2;
             if(helper(q, n, m)){
