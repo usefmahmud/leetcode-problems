@@ -3,9 +3,12 @@ public:
     int helper(vector<int>& q, int n, int m){
         for(auto x: q){
             n -= ceil((float)x/m);
+            if(n < 0){
+                return 0;
+            }
         }
 
-        return n >= 0;
+        return 1;
     }
     int minimizedMaximum(int n, vector<int>& q) {
         sort(q.begin(), q.end());
