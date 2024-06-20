@@ -1,10 +1,8 @@
 class Solution {
 public:
     int helper(vector<int>& q, int n, int m){
-        // long long x = accumulate(q.begin(), q.end(), 0);
-        // n -= ceil((double)x/m);
         for(auto x: q){
-            n -= ceil((double)x/m);
+            n -= ceil((float)x/m);
         }
 
         return n >= 0;
