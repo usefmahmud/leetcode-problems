@@ -12,9 +12,7 @@ public:
         }
         res = max(res, sum);
         while(r < n){
-            cout<<sum<<' '<<res<<endl;
             if(g[r] == 1) sum += c[r];
-
             if(g[l] == 1) sum -= c[l];
             res = max(res, sum);
             r++,l++; 
