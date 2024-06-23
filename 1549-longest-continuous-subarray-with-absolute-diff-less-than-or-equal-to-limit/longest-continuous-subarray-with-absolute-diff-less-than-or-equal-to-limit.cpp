@@ -8,7 +8,7 @@ public:
             while(*mst.rbegin() - *mst.begin() > limit){
                 mst.erase(mst.find(nums[l++]));
             }
-            res = max(res, (int)mst.size());
+            res = max(res, r-l);
         }
         
         return res;
