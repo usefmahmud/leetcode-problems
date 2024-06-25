@@ -11,16 +11,13 @@
  */
 class Solution {
 public:
-    bool go(TreeNode* a, TreeNode* b){
+    bool isSameTree(TreeNode* a, TreeNode* b) {
         if(!a && !b){
             return true;
         }
         if(!a || !b || a->val != b->val){
             return false;
         }
-        return go(a->right, b->right) && go(a->left, b->left);
-    }
-    bool isSameTree(TreeNode* p, TreeNode* q) {
-        return go(p, q);
+        return isSameTree(a->right, b->right) && isSameTree(a->left, b->left);
     }
 };
