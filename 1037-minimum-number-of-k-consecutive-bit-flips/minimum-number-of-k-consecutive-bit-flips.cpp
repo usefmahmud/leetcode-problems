@@ -5,7 +5,7 @@ public:
         while(i < n.size()){
             if(i-k >= 0 && n[i-k]==-1) --c;
 
-            if((!(c%2) && !n[i]) || (c%2 && n[i])){
+            if(c%2 == n[i]){
                 n[i] = -1;
                 ++c, ++t;
 
