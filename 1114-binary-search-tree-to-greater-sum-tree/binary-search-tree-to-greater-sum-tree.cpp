@@ -12,18 +12,20 @@
 class Solution {
 private:
 public:
-    void go(TreeNode* branch, int& t){
-        if(branch == nullptr) return;
+    int sum = 0;
+    void go(TreeNode* branch){
+        if(branch == nullptr){
+            return;
+        }
 
-        // go greatest (right) then backtrack and go lowest (left)
-        go(branch -> right, t);
-        t += branch -> val, branch -> val = t;
+        go(branch->right);
+        sum += branch->val;
+        branch->val = sum;
 
-        go(branch -> left, t);
+        go(branch->left);
     }
     TreeNode* bstToGst(TreeNode* root) {
-        int total = 0;
-        go(root, total);
+        go(root);
 
         return root;
     }
