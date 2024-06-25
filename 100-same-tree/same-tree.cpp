@@ -11,22 +11,16 @@
  */
 class Solution {
 public:
-    void go(TreeNode* a, TreeNode* b, bool& state){
-        if((!a && b) || (a && !b)){
-            state = false;
-            return;
+    bool go(TreeNode* a, TreeNode* b){
+        if(!a && !b){
+            return true;
         }
-        if(!a && !b) return;
-        if(a->val != b->val){
-            state = false;
-            return;
+        if(!a || !b || a->val != b->val){
+            return false;
         }
-        go(a->right, b->right, state);
-        go(a->left, b->left, state);
+        return go(a->right, b->right) && go(a->left, b->left);
     }
     bool isSameTree(TreeNode* p, TreeNode* q) {
-        bool state = true;
-        go(p, q, state);
-        return state;
+        return go(p, q);
     }
 };
