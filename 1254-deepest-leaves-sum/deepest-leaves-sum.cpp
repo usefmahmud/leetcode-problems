@@ -10,30 +10,25 @@
  * };
  */
 class Solution {
-    int maxDepth = 0;
 public:
-    void go(TreeNode* b, int d){
-        if(b == NULL){
-            maxDepth = max(maxDepth, d);
-            return;
-        }
-        go(b -> right, d+1);
-        go(b -> left, d+1);
+    int go(TreeNode* b, int d){
+        if(b == NULL) return 0;
+        return 1 + max(go(b -> right, d+1), go(b -> left, d+1));
     }
-    void goSum(TreeNode* b, int d, int& sum){
+    void goSum(TreeNode* b, int d, int maxDepth, int& sum){
         if(b == NULL) return;
         if(d == maxDepth-1){
             sum += b -> val;
             return;
         }
-
-        goSum(b -> right, d+1, sum);
-        goSum(b -> left, d+1, sum);
+        ++d;
+        goSum(b -> right, d, maxDepth, sum);
+        goSum(b -> left, d, maxDepth, sum);
     }   
     int deepestLeavesSum(TreeNode* root) {
-        go(root, 0);
+        int maxDepth = go(root, 0);
         int sum = 0;
-        goSum(root, 0, sum);
+        goSum(root, 0, maxDepth, sum);
         return sum;
     }
 };
