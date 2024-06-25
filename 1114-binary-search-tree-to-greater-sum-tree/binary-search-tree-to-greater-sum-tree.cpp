@@ -12,20 +12,20 @@
 class Solution {
 private:
 public:
-    int sum = 0;
-    void go(TreeNode* branch){
-        if(branch == nullptr){
+    void go(TreeNode* branch, int& total){
+        if(branch == NULL){
             return;
         }
 
-        go(branch->right);
-        sum += branch->val;
-        branch->val = sum;
+        go(branch->right, total);
+        total += branch->val;
+        branch->val = total;
 
-        go(branch->left);
+        go(branch->left, total);
     }
     TreeNode* bstToGst(TreeNode* root) {
-        go(root);
+        int total = 0;
+        go(root, total);
 
         return root;
     }
