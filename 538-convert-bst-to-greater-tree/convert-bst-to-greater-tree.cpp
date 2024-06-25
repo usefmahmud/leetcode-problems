@@ -12,7 +12,7 @@
 class Solution {
 public:
     void go(TreeNode* branch, int& t){
-        if(branch == nullptr) return;
+        if(branch == NULL) return;
 
         // go greatest (right) then backtrack and go lowest (left)
         go(branch -> right, t);
