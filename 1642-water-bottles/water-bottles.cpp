@@ -1,16 +1,16 @@
 class Solution {
 public:
     int numWaterBottles(int numBottles, int numExchange) {
-        int sum = 0;
+        int sum = numBottles;
         int full = numBottles, empty = 0;
-        while(full){
-            if(full >= numExchange){
-                sum += full - full % numExchange;
-                full = full%numExchange + full/numExchange;
-                continue;
-            }
-            sum += full;
-            full = 0;
+        while(full >= numExchange){
+            sum += full / numExchange;
+
+            empty = full % numExchange;
+            empty += full / numExchange;
+            full = empty;
+
+            empty = 0;
         }
 
         return sum;
