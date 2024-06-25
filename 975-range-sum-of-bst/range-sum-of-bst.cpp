@@ -15,8 +15,8 @@ public:
         if(b == NULL) return;
         if(b -> val >= l && b -> val <= h) sum += b -> val;
 
-        go(b -> right, l, h, sum);
-        go(b -> left, l, h, sum);
+        if(b -> val < h) go(b -> right, l, h, sum);
+        if(b -> val > l) go(b -> left, l, h, sum);
     }
     int rangeSumBST(TreeNode* root, int l, int h) {
         int sum = 0;
