@@ -12,16 +12,14 @@
 class Solution {
 private:
 public:
-    void go(TreeNode* branch, int& total){
-        if(branch == NULL){
-            return;
-        }
+    void go(TreeNode* branch, int& t){
+        if(branch == nullptr) return;
 
-        go(branch->right, total);
-        total += branch->val;
-        branch->val = total;
+        // go greatest (right) then backtrack and go lowest (left)
+        go(branch -> right, t);
+        t += branch -> val, branch -> val = t;
 
-        go(branch->left, total);
+        go(branch -> left, t);
     }
     TreeNode* bstToGst(TreeNode* root) {
         int total = 0;
