@@ -21,7 +21,7 @@ public:
 
     }
     bool leafSimilar(TreeNode* root1, TreeNode* root2) {
-        string a = "", b = "";
+        string a="", b="";
         go(root1, a), go(root2, b);
 
         return a == b;
