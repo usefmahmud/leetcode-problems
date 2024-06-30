@@ -13,8 +13,8 @@ class Solution {
     int i = 0;
 public:
     TreeNode* bstFromPreorder(vector<int>& p, int mx = INT_MAX) {
-        if(i >= p.size() || p[i] > mx) return NULL;
-        TreeNode* root = new TreeNode(p[i++]);
+        if(i == p.size() || p[i] > mx) return NULL;
+        auto root = new TreeNode(p[i++]);
         root->left = bstFromPreorder(p, root->val);
         root->right = bstFromPreorder(p, mx);
         
