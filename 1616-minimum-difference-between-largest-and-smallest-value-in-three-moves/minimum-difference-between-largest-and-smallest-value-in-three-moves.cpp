@@ -5,7 +5,7 @@ public:
             return 0;
         }
         sort(nums.begin(), nums.end());
-        int n = nums.size(), i = 0, j = n - 4, r = INT_MAX;
+        int n = nums.size(), i = 0, j = n - 4, r = nums[n - 1] - nums[0];
         while(j < n){
             r = min(r, nums[j++] - nums[i++]);
         }
