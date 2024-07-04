@@ -1,16 +1,16 @@
 class Solution {
 public:
     int maxTest(int r, int b){
-        int i = 1;
+        int i = 1, x = 0;
         while(r > 0 || b > 0){
-            if(i % 2 && r >= i){
+            if(x && r >= i){
                 r -= i;
-            }else if(i % 2 == 0 && b >= i){
+            }else if(!x && b >= i){
                 b -= i;
             }else{
                 break;
             }
-            i++;
+            ++i, x ^= 1;
         }
 
         return i-1;
