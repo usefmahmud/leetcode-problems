@@ -11,16 +11,16 @@
 class Solution {
 public:
     ListNode* mergeNodes(ListNode* head) {
-        ListNode* curr = head->next;
+        head = head->next;
         ListNode* result = new ListNode(0);
         ListNode* currResult = result;
-        while(curr){
-            if(curr->val != 0){
-                currResult->val += curr->val;
-                curr = curr->next;
+        while(head){
+            if(head->val != 0){
+                currResult->val += head->val;
+                head = head->next;
             }else{
-                curr = curr->next;
-                if(curr){
+                head = head->next;
+                if(head){
                     ListNode* tmp = new ListNode(0);
                     currResult->next = tmp;
                     currResult = currResult->next;
