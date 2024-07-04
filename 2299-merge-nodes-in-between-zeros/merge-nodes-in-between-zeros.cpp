@@ -27,7 +27,7 @@ public:
                 }
             }
         }
-
+        delete head;
         return result;
     }
 };
