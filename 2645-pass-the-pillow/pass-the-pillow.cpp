@@ -1,13 +1,10 @@
 class Solution {
 public:
     int passThePillow(int n, int time) {
-        int i = 1, dir = 1;
-        while(time--){
-            if(dir) i++;
-            else i--;
-
-            if(i == 1 || i == n) dir = !dir;
+        if(time / (n - 1) % 2 == 0){
+            return time % (n - 1) + 1;
+        }else{
+            return n - time % (n - 1);
         }
-        return i;
     }
 };
