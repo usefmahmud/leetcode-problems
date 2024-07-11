@@ -8,9 +8,7 @@ public:
         }
         int r = 0;
         for(auto x: m){
-            if(x.second > 1){
-                r += x.second * (x.second - 1) / 2;
-            }
+            r += x.second * (x.second - 1) / 2;
         }
         return r;
     }
