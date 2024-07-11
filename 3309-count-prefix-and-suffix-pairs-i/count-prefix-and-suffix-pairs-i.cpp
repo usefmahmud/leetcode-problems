@@ -1,5 +1,5 @@
 class Solution {
-    bool isPrefix(string a, string b){
+    bool isPrefix(string& a, string& b){
         int i = 0, j = 0, n = a.length(), m = b.length();
         while(i < n && j < m){
             if(a[i] == b[j]){
@@ -11,7 +11,7 @@ class Solution {
         return true;
     }
 
-    bool isSuffix(string a, string b){
+    bool isSuffix(string& a, string& b){
         int i = a.length() - 1, j = b.length() - 1;
         while(i >= 0 && j >= 0){
             if(a[i] == b[j]){
