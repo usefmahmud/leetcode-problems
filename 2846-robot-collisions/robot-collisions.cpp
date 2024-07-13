@@ -8,34 +8,34 @@ public:
         } 
         sort(robots.begin(), robots.end());
 
-        vector<pair<int,int>> line;
+        stack<int> line;
         for(auto x: robots){
             if(d[x.second] == 'L'){
                 while(!line.empty() && h[x.second] > 0){
-                    auto last = line.back();
+                    int last = line.top();
 
-                    if(h[last.second] == h[x.second]){
-                        h[last.second] = 0;
+                    if(h[last] == h[x.second]){
+                        h[last] = 0;
                         h[x.second] = 0;
-                        line.pop_back();
+                        line.pop();
                         continue;
                     }
 
-                    if(h[last.second] < h[x.second]){
-                        h[last.second] = 0;
+                    if(h[last] < h[x.second]){
+                        h[last] = 0;
                         h[x.second]--;
-                        line.pop_back();
+                        line.pop();
                         continue;
                     }
 
-                    if(h[last.second] > h[x.second]){
-                        h[last.second]--;
+                    if(h[last] > h[x.second]){
+                        h[last]--;
                         h[x.second] = 0;
                     }
                 }
                 continue;
             }else{
-                line.emplace_back(x);
+                line.push(x.second);
             }
         }
 
