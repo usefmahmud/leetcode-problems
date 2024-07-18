@@ -19,11 +19,17 @@ public:
         vector<int> right = go(b->right, dis, r);
         vector<int> tmp;
 
-        for(auto y: left){
-            for(auto x: right){
+        for(auto x: right){
+            for(auto y: left){
                 if(x + y <= dis){
                     r++;
                 }
+            }
+        }
+
+        for(auto x: right){
+            if(x < dis){
+                tmp.push_back(x + 1);
             }
         }
 
@@ -33,11 +39,6 @@ public:
             }
         }
 
-        for(auto x: right){
-            if(x < dis){
-                tmp.push_back(x + 1);
-            }
-        }
 
         return tmp;
     }
